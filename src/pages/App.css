@@ -1,0 +1,15 @@
+.Header{
+  display: flex;
+  align-items: center;
+   justify-content: center;
+}
+.Body{
+  display: flex;
+  align-items: center;
+   justify-content: center;
+   flex-direction: column;
+}
+.images{
+  display: flex;
+    gap: 20px;
+}
