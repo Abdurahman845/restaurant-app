@@ -5,8 +5,14 @@ import { useNavigate } from "react-router-dom"
 function App() {
     const navigate = useNavigate();
 
-  function handleClick() {
-    navigate("/checkout");
+  function handleBurgerClick() {
+    navigate("/checkoutBurger");
+  }
+  function handleShawarmaClick() {
+    navigate("/checkoutShawarma");
+  }
+  function handlePizzaClick() {
+    navigate("/checkoutPizza");
   }
   return (
     <div >
@@ -24,9 +30,9 @@ function App() {
             </h2>
           </div>
           <div className='images'>
-            <img src="burger image.jpg" alt="burger" onClick={handleClick}></img>
-            <img src="shawarma image.jpg" alt="shawarma"onClick={handleClick}></img>
-            <img src="pizza image.jpg" alt="pizzas"onClick={handleClick}></img>
+            <img src="burger image.jpg" alt="burger" onClick={handleBurgerClick}></img>
+            <img src="shawarma image.jpg" alt="shawarma"onClick={handleShawarmaClick}></img>
+            <img src="pizza image.jpg" alt="pizzas"onClick={handlePizzaClick}></img>
           </div>
         </div>
       </div>

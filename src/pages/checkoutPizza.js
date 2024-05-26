@@ -1,6 +1,17 @@
 
 import './App.css';
 
+function clickMe() {
+  fetch("http://localhost:5000/orders/pizzas", {headers: { ContentType: "application/json" }})
+  .then(response => response.json())  
+  .then( response =>  {
+      console.log("response is", response)
+      // let res = await response.json()
+      // console.log("testing response.json", res)
+     
+    })
+}
+
 function App() {
   return (
     <div >
@@ -9,7 +20,7 @@ function App() {
           <h1>
             Hassan's Restaurant(checkout)
           </h1>
-        </div>
+        </div>f
 
         <div className='Body'>
           <div>
@@ -18,9 +29,10 @@ function App() {
             </h2>
           </div>
           <div className='images'>
-            <img src="burger image.jpg" alt="burger"></img>
-            <img src="shawarma image.jpg" alt="shawarma"></img>
             <img src="pizza image.jpg" alt="pizzas"></img>
+
+            <p> order </p>
+            <button onClick={clickMe}>Order Food</button>
           </div>
         </div>
       </div>

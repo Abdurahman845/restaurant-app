@@ -6,6 +6,7 @@ const client = new MongoClient(url, {})
 const express = require('express');
 const app = express();
 console.log("App listen at port 5000");
+app.use(express.json());
 app.get("/", (req, resp) => {
 
     resp.send("App is Working");
@@ -16,20 +17,20 @@ app.get("/", (req, resp) => {
     // backend working properly
 });
 
-app.get("/orders/burgers", (req, resp) => {
-    let orders = client.db("restaurant").collection("orders").insertOne({ name: "burger", price: "£15" })
-    resp.send("Burger has been ordered");
+app.get("/orders/burgers", async (req, resp) => {
+    let orders =await client.db("restaurant").collection("orders").insertOne({ name: "burger", price: "£15" })
+    resp.send({message:"Burger has been ordered"});
 
 });
 
-app.get("/orders/pizzas", (req, resp) => {
-    let orders = client.db("restaurant").collection("orders").insertOne({ name: "pizzas", price: "£25" })
-    resp.send("pizza has now been ordered");
+app.get("/orders/pizzas", async (req, resp) => {
+    let orders = await client.db("restaurant").collection("orders").insertOne({ name: "pizzas", price: "£25" })
+    resp.send({message:"pizza has now been ordered"});
 
 });
-app.get("/orders/shawarma", (req, resp) => {
-    let orders = client.db("restaurant").collection("orders").insertOne({ name: "shawarma", price: "£35" })
-    resp.send("shawarma has now been ordered");
+app.get("/orders/shawarma", async (req, resp) => {
+    let orders = await client.db("restaurant").collection("orders").insertOne({ name: "shawarma", price: "£35" })
+    resp.send({message:"shawarma has now been ordered"});
 });
 
 app.get("/orders", async (req, resp) => {
